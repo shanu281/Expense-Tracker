@@ -1,0 +1,36 @@
+input{
+    width: 70%;
+    height: 2rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.6rem 3rem;
+
+}
+button{
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: greenyellow;
+    transition: 800ms;
+    border-radius: 10px;
+
+}
+button:hover{
+    background-color: green;
+    color: white;
+   
+}
+.search-section{
+    justify-content: space-between;
+    margin:  2rem;
+}
+.back-section{
+    justify-content: space-between;
+    margin: 0 2rem;
+}
+.btn{
+    border-radius: 5%;
+    background-color: darkcyan;
+    color: white;
+}

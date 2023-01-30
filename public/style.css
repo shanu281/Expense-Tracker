@@ -1,0 +1,201 @@
+* {  
+    Border: 0;  
+    Box-Sizing: Border-Box;  
+    Margin: 0;  
+    Padding: 0;  
+}  
+:Root {  
+    --Hue: 223;  
+    --Bg: Hsl(Var(--Hue),10%,100%);  
+    --Fg: Hsl(Var(--Hue),10%,0%);  
+    --Primary: Hsl(Var(--Hue),90%,55%);  
+    --PrimaryT: Hsla(Var(--Hue),90%,55%,0);  
+    --TransDur: 0.3s;  
+    Font-Size: Calc(16px + (32 - 16) * (100vw - 320px) / (1280 - 320));  
+}  
+Html,  
+Body {  
+    Background-Color: Var(--Bg);  
+}  
+Body,  
+Input {  
+    Font: 1em/1.5 Fredoka, Sans-Serif;  
+}  
+Body {  
+    Color: Var(--Fg);  
+    Height: 100vh;  
+    Display: Grid;  
+    Place-Items: Center;  
+}  
+/* Default */  
+.Theme {  
+    Display: Flex;  
+    Align-Items: Center;  
+    -Webkit-Tap-Highlight-Color: Transparent;  
+}  
+.Theme__fill,  
+.Theme__icon {  
+    Transition: Transform Var(--TransDur) Ease-In-Out;  
+}  
+.Theme__fill {  
+    Background-Color: Var(--Bg);  
+    Display: Block;  
+    Mix-Blend-Mode: Difference;  
+    Position: Fixed;  
+    Inset: 0;  
+    Height: 100%;  
+    Transform: TranslateX(-100%);  
+}  
+.Theme__icon,  
+.Theme__toggle {  
+    Z-Index: 1;  
+}  
+.Theme__icon,  
+.Theme__icon-Part {  
+    Position: Absolute;  
+}  
+.Theme__icon {  
+    Display: Block;  
+    Top: 0.2em;  
+    Left: 0.24em;  
+    Width: 1.5em;  
+    Height: 1.6em;  
+}  
+.Theme__icon-Part {  
+    Border-Radius: 50%;  
+    Box-Shadow: 0.4em -0.4em 0 0.5em Hsl(0,0%,100%) Inset;  
+    Top: Calc(50% - 0.5em);  
+    Left: Calc(50% - 0.5em);  
+    Width: 1em;  
+    Height: 1em;  
+    Transition:  
+         Box-Shadow Var(--TransDur) Ease-In-Out,  
+         Opacity Var(--TransDur) Ease-In-Out,  
+         Transform Var(--TransDur) Ease-In-Out;  
+    Transform: Scale(0.5);  
+}  
+.Theme__icon-Part ~ .Theme__icon-Part {  
+    Background-Color: Hsl(0,0%,100%);  
+    Border-Radius: 0.05em;  
+    Box-Shadow: None;  
+    Top: 50%;  
+    Left: Calc(50% - 0.05em);  
+    Transform: Rotate(0deg) TranslateY(0.5em);  
+    Transform-Origin: 50% 0;  
+    Width: 0.1em;  
+    Height: 0.2em;  
+}  
+.Theme__icon-Part:nth-Child(3) {  
+    Transform: Rotate(45deg) TranslateY(0.5em);  
+}  
+.Theme__icon-Part:nth-Child(4) {  
+    Transform: Rotate(90deg) TranslateY(0.5em);  
+}  
+.Theme__icon-Part:nth-Child(5) {  
+    Transform: Rotate(135deg) TranslateY(0.5em);  
+}  
+.Theme__icon-Part:nth-Child(6) {  
+    Transform: Rotate(180deg) TranslateY(0.5em);  
+}  
+.Theme__icon-Part:nth-Child(7) {  
+    Transform: Rotate(225deg) TranslateY(0.5em);  
+}  
+.Theme__icon-Part:nth-Child(8) {  
+    Transform: Rotate(270deg) TranslateY(0.5em);  
+}  
+.Theme__icon-Part:nth-Child(9) {  
+    Transform: Rotate(315deg) TranslateY(0.5em);  
+}  
+.Theme__label,  
+.Theme__toggle,  
+.Theme__toggle-Wrap {  
+    Position: Relative;  
+}  
+.Theme__toggle,  
+.Theme__toggle:before {  
+    Display: Block;  
+}  
+.Theme__toggle {  
+    Background-Color: Hsl(48,90%,85%);  
+    Border-Radius: 25% / 50%;  
+    Box-Shadow: 0 0 0 0.125em Var(--PrimaryT);  
+    Padding: 0.25em;  
+    Width: 3.5em;  
+    Height: 2em;  
+    -Webkit-Appearance: None;  
+    Appearance: None;  
+    Transition:  
+         Background-Color Var(--TransDur) Ease-In-Out,  
+         Box-Shadow 0.15s Ease-In-Out,  
+         Transform Var(--TransDur) Ease-In-Out;  
+}  
+.Theme__toggle:before {  
+    Background-Color: Hsl(48,90%,55%);  
+    Border-Radius: 50%;  
+    Content: "";  
+    Width: 1.5em;  
+    Height: 1.5em;  
+    Transition:  
+         Background-Color Var(--TransDur) Ease-In-Out,  
+         Transform Var(--TransDur) Ease-In-Out;  
+}  
+.Theme__toggle:focus {  
+    Box-Shadow: 0 0 0 0.125em Var(--Primary);  
+    Outline: Transparent;  
+}  
+/* Checked */  
+.Theme__toggle:checked {  
+    Background-Color: Hsl(198,90%,15%);  
+}  
+.Theme__toggle:checked:before,  
+.Theme__toggle:checked ~ .Theme__icon {  
+    Transform: TranslateX(1.6em);  
+}  
+.Theme__toggle:checked:before {  
+    Background-Color: Hsl(198,90%,55%);  
+}  
+.Theme__toggle:checked ~ .Theme__fill {  
+    Transform: TranslateX(0);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(1) {  
+    Box-Shadow: 0.2em -0.2em 0 0.2em Hsl(0,0%,100%) Inset;  
+    Transform: Scale(1);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part ~ .Theme__icon-Part {  
+    Opacity: 0;  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(2) {  
+    Transform: Rotate(45deg) TranslateY(0.8em);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(3) {  
+    Transform: Rotate(90deg) TranslateY(0.8em);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(4) {  
+    Transform: Rotate(135deg) TranslateY(0.8em);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(5) {  
+    Transform: Rotate(180deg) TranslateY(0.8em);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(6) {  
+    Transform: Rotate(225deg) TranslateY(0.8em);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(7) {  
+    Transform: Rotate(270deg) TranslateY(0.8em);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(8) {  
+    Transform: Rotate(315deg) TranslateY(0.8em);  
+}  
+.Theme__toggle:checked ~ .Theme__icon .Theme__icon-Part:nth-Child(9) {  
+    Transform: Rotate(360deg) TranslateY(0.8em);  
+}  
+.Theme__toggle-Wrap {  
+    Margin: 0 0.75em;  
+}  
+@Supports Selector(:Focus-Visible) {  
+    .Theme__toggle:focus {  
+         Box-Shadow: 0 0 0 0.125em Var(--PrimaryT);  
+    }  
+    .Theme__toggle:focus-Visible {  
+         Box-Shadow: 0 0 0 0.125em Var(--Primary);  
+    }  
+}  

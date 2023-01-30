@@ -1,0 +1,27 @@
+img{
+    width: 80%;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 50%;
+
+}
+.image-container{
+    width: 5rem;
+    height: 5rem;
+    
+}
+.flex{
+    display: flex;
+}
+.header{
+    width: 40%;
+    margin: auto ;
+    padding-top: 2rem;
+    
+  
+}
+h4{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
